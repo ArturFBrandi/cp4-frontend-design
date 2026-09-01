@@ -1,0 +1,591 @@
+/* =========================================================================
+   EcoTrend — Estilos personalizados (sobrescreve o Bootstrap)
+   Checkpoint 04 — Front-end Design | FIAP
+   Sumário:
+     01. Design tokens
+     02. Base e tipografia
+     03. Utilitários e botões
+     04. Header e navegação
+     05. Banner (carrossel)
+     06. Cards de produto
+     07. Página de categorias (filtros e grid)
+     08. Página de detalhes do produto
+     09. Página de contato (formulário)
+     10. Rodapé
+     11. Responsividade
+   ========================================================================= */
+
+/* ---------- 01. Design tokens ---------------------------------------- */
+:root {
+  --eco-900: #0B2E1E;
+  --eco-800: #12452E;
+  --eco-700: #1B6B47;
+  --eco-600: #2D6A4F;
+  --eco-500: #40916C;
+  --eco-400: #63B38A;
+  --eco-300: #95D5B2;
+  --eco-100: #D8F3DC;
+  --eco-50:  #EEF8F1;
+
+  --sand:  #F5F1E8;
+  --cream: #FBF9F4;
+  --clay:  #C98B7E;
+  --amber: #D99A2B;
+
+  --ink:   #14201A;
+  --body:  #46564E;
+  --muted: #6E7D75;
+  --line:  #E2E6E0;
+
+  --radius-sm: 10px;
+  --radius:    16px;
+  --radius-lg: 24px;
+
+  --shadow-sm: 0 2px 10px rgba(11, 46, 30, .06);
+  --shadow:    0 10px 30px rgba(11, 46, 30, .08);
+  --shadow-lg: 0 22px 60px rgba(11, 46, 30, .14);
+
+  --ease: cubic-bezier(.22, .8, .3, 1);
+
+  /* sobrescrita das variáveis do próprio Bootstrap */
+  --bs-body-font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --bs-body-color: var(--body);
+  --bs-body-bg: var(--cream);
+  --bs-border-color: var(--line);
+  --bs-primary: var(--eco-600);
+  --bs-primary-rgb: 45, 106, 79;
+  --bs-link-color: var(--eco-700);
+  --bs-link-hover-color: var(--eco-900);
+  --bs-focus-ring-color: rgba(45, 106, 79, .28);
+}
+
+/* ---------- 02. Base e tipografia ------------------------------------ */
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--body);
+  font-family: var(--bs-body-font-family);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  font-weight: 600;
+  letter-spacing: -.015em;
+  line-height: 1.15;
+}
+
+.section-title { font-size: clamp(1.7rem, 3.2vw, 2.6rem); margin-bottom: .35rem; }
+.lead-eco { font-size: clamp(1rem, 1.6vw, 1.16rem); color: var(--body); max-width: 56ch; }
+
+a { text-decoration: none; transition: color .2s var(--ease); }
+
+::selection { background: var(--eco-300); color: var(--eco-900); }
+
+:focus-visible {
+  outline: 3px solid var(--eco-400);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ---------- 03. Utilitários e botões --------------------------------- */
+.text-eco       { color: var(--eco-700) !important; }
+.text-muted-eco { color: var(--muted) !important; }
+.bg-sand        { background: var(--sand) !important; }
+
+.section { padding: clamp(3rem, 6vw, 5rem) 0; }
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: .74rem;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--eco-700);
+  background: var(--eco-100);
+  padding: .4rem .85rem;
+  border-radius: 999px;
+}
+
+.btn {
+  --bs-btn-font-weight: 600;
+  border-radius: 999px;
+  padding: .72rem 1.6rem;
+  transition: transform .22s var(--ease), box-shadow .22s var(--ease),
+              background-color .2s var(--ease), color .2s var(--ease);
+}
+.btn:active { transform: translateY(1px); }
+
+.btn-eco {
+  background: var(--eco-700);
+  color: #fff;
+  box-shadow: 0 8px 22px rgba(27, 107, 71, .28);
+}
+.btn-eco:hover, .btn-eco:focus { background: var(--eco-900); color: #fff; transform: translateY(-2px); }
+
+
+.link-arrow {
+  font-weight: 600;
+  color: var(--eco-800);
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+.link-arrow i { transition: transform .25s var(--ease); }
+.link-arrow:hover { color: var(--eco-600); }
+.link-arrow:hover i { transform: translateX(5px); }
+
+.badge-eco {
+  background: var(--eco-100);
+  color: var(--eco-800);
+  font-weight: 600;
+  border-radius: 999px;
+  padding: .34rem .7rem;
+  font-size: .74rem;
+}
+
+/* ---------- 04. Header e navegação ----------------------------------- */
+.navbar-eco {
+  background: rgba(251, 249, 244, .92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+  padding-block: .55rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .65rem;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 1.42rem;
+  font-weight: 600;
+  color: var(--eco-900);
+  letter-spacing: -.02em;
+}
+.brand:hover { color: var(--eco-700); }
+.brand__mark {
+  width: 40px; height: 40px;
+  display: grid; place-items: center;
+  background: var(--eco-800);
+  color: var(--eco-300);
+  border-radius: 13px;
+  font-size: 1.05rem;
+  box-shadow: 0 6px 16px rgba(11, 46, 30, .22);
+}
+.brand__mark i { transform: rotate(-8deg); }
+
+.navbar-eco .nav-link {
+  color: var(--ink);
+  font-weight: 600;
+  font-size: .95rem;
+  padding: .5rem .95rem !important;
+  border-radius: 999px;
+}
+.navbar-eco .nav-link:hover { color: var(--eco-700); background: var(--eco-50); }
+.navbar-eco .nav-link.active { color: var(--eco-800); background: var(--eco-100); }
+
+.navbar-eco .dropdown-menu {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: .5rem;
+  min-width: 260px;
+}
+.navbar-eco .dropdown-item {
+  border-radius: 10px;
+  padding: .6rem .8rem;
+  font-weight: 500;
+  color: var(--body);
+  display: flex;
+  align-items: center;
+  gap: .7rem;
+}
+.navbar-eco .dropdown-item:hover { background: var(--eco-50); color: var(--eco-800); }
+.navbar-eco .dropdown-item i { color: var(--eco-500); width: 1.1rem; text-align: center; }
+
+.icon-btn {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  display: grid; place-items: center;
+  position: relative;
+  transition: all .22s var(--ease);
+}
+.icon-btn:hover { background: var(--eco-800); color: #fff; border-color: var(--eco-800); }
+
+.cart-count {
+  position: absolute;
+  top: -5px; right: -5px;
+  min-width: 21px; height: 21px;
+  padding: 0 5px;
+  background: var(--amber);
+  color: #241a02;
+  font-size: .68rem;
+  font-weight: 800;
+  border-radius: 999px;
+  display: grid; place-items: center;
+  border: 2px solid var(--cream);
+}
+
+.navbar-toggler { border: 1px solid var(--line); border-radius: 12px; padding: .45rem .6rem; }
+.navbar-toggler:focus { box-shadow: none; }
+
+/* ---------- 05. Banner (carrossel) ----------------------------------- */
+.hero { background: var(--sand); position: relative; overflow: hidden; }
+
+.hero-slide {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  align-items: center;
+  gap: 2.5rem;
+  min-height: clamp(480px, 70vh, 640px);
+  padding: 3rem 0;
+}
+
+.hero-slide__content { max-width: 40rem; }
+.hero-slide__title {
+  font-size: clamp(2.2rem, 5vw, 3.9rem);
+  line-height: 1.03;
+  letter-spacing: -.03em;
+  margin: 1rem 0;
+}
+.hero-slide__text { font-size: clamp(1rem, 1.5vw, 1.14rem); max-width: 44ch; margin-bottom: 1.9rem; }
+
+.hero-stage {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / 1;
+  max-width: 440px;
+  margin-inline: auto;
+  width: 100%;
+}
+.hero-stage::before {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: 46% 54% 58% 42% / 52% 46% 54% 48%;
+  background: radial-gradient(circle at 30% 28%, #fff 0%, var(--eco-100) 55%, var(--eco-300) 100%);
+}
+.hero-stage img {
+  position: relative;
+  width: 76%;
+  filter: drop-shadow(0 26px 42px rgba(11, 46, 30, .2));
+}
+
+.hero-carousel .carousel-indicators { bottom: 1.4rem; margin-bottom: 0; gap: .5rem; }
+.hero-carousel .carousel-indicators [data-bs-target] {
+  width: 34px; height: 5px;
+  border-radius: 999px;
+  background: var(--eco-800);
+  opacity: .22;
+  border: 0;
+  transition: all .3s var(--ease);
+}
+.hero-carousel .carousel-indicators .active { opacity: 1; width: 54px; }
+
+.hero-carousel .carousel-control-prev,
+.hero-carousel .carousel-control-next {
+  width: 52px; height: 52px;
+  top: auto; bottom: 1.9rem;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 1;
+  box-shadow: var(--shadow);
+  color: var(--eco-900);
+  display: grid; place-items: center;
+  transition: all .22s var(--ease);
+}
+.hero-carousel .carousel-control-prev { left: auto; right: 5.2rem; }
+.hero-carousel .carousel-control-next { right: 1.2rem; }
+.hero-carousel .carousel-control-prev:hover,
+.hero-carousel .carousel-control-next:hover { background: var(--eco-800); color: #fff; }
+
+/* ---------- 06. Cards de produto (componente card do Bootstrap) ------ */
+.product-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+}
+.product-card:hover {
+  transform: translateY(-7px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--eco-300);
+}
+
+.product-card__media {
+  position: relative;
+  background: var(--sand);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.product-card__media a {            /* o link preenche toda a área da imagem */
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.product-card__media img {
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: contain;              /* mostra a ilustração inteira, sem corte */
+  padding: .5rem;
+  transition: transform .45s var(--ease);
+}
+.product-card:hover .product-card__media img { transform: scale(1.07); }
+
+
+.product-card .card-body {
+  padding: 1.15rem 1.25rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+.product-card__brand {
+  font-size: .72rem; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--eco-600);
+}
+.product-card .card-title {
+  font-family: var(--bs-body-font-family);
+  font-size: 1rem; font-weight: 700; color: var(--ink);
+  line-height: 1.35; margin: 0;
+}
+.product-card .card-title a { color: inherit; }
+.product-card .card-title a:hover { color: var(--eco-700); }
+
+
+.price { display: flex; align-items: baseline; gap: .5rem; margin-top: auto; }
+.price__now { font-size: 1.22rem; font-weight: 800; color: var(--eco-800); letter-spacing: -.02em; }
+.price__old { font-size: .87rem; color: var(--muted); text-decoration: line-through; }
+
+.btn-add {
+  width: 100%;
+  background: var(--eco-50);
+  color: var(--eco-800);
+  border: 1px solid var(--eco-100);
+  font-weight: 700;
+  font-size: .9rem;
+  padding: .68rem 1rem;
+  border-radius: 999px;
+  display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
+}
+.btn-add:hover { background: var(--eco-800); border-color: var(--eco-800); color: #fff; }
+
+/* ---------- 07. Página de categorias --------------------------------- */
+.page-head {
+  background: linear-gradient(160deg, var(--eco-50), var(--sand));
+  border-bottom: 1px solid var(--line);
+  padding: clamp(2.2rem, 5vw, 3.6rem) 0;
+}
+.breadcrumb { --bs-breadcrumb-divider-color: var(--muted); font-size: .86rem; margin-bottom: .6rem; }
+.breadcrumb a { color: var(--eco-700); font-weight: 600; }
+.breadcrumb-item.active { color: var(--muted); }
+
+.filters {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  position: sticky;
+  top: 90px;
+}
+.filters h3 {
+  font-family: var(--bs-body-font-family);
+  font-size: .78rem; font-weight: 800;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: .9rem;
+}
+.filter-group + .filter-group { border-top: 1px solid var(--line); margin-top: 1.35rem; padding-top: 1.35rem; }
+
+.form-check-input {
+  border-color: #C6CFC9;
+  width: 1.15em; height: 1.15em;
+  margin-top: .18em;
+}
+.form-check-input:checked { background-color: var(--eco-600); border-color: var(--eco-600); }
+.form-check-input:focus { border-color: var(--eco-400); box-shadow: 0 0 0 .2rem rgba(64, 145, 108, .18); }
+.form-check-label { font-size: .92rem; cursor: pointer; color: var(--body); }
+.form-check-label .count { color: var(--muted); font-size: .8rem; }
+
+.form-range { accent-color: var(--eco-600); }
+.form-range::-webkit-slider-thumb { background: var(--eco-700); }
+.form-range::-moz-range-thumb { background: var(--eco-700); border: 0; }
+
+/* grade de produtos montada com CSS Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+.product-grid .product-card { display: flex; flex-direction: column; height: 100%; }
+.product-grid .product-card[hidden] { display: none; }   /* usado pelos filtros */
+.product-grid .card-body { flex: 1; }
+
+/* ---------- 08. Página de detalhes do produto ------------------------ */
+.produto-media {
+  background: var(--sand);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  aspect-ratio: 1 / 1;
+  display: grid; place-items: center;
+  overflow: hidden;
+}
+.produto-media img { width: 88%; }
+
+.product-title { font-size: clamp(1.75rem, 3.4vw, 2.5rem); margin: .55rem 0 .8rem; }
+
+.price-block { background: var(--eco-50); border-radius: var(--radius); padding: 1.25rem 1.4rem; }
+.price-block .price__now { font-size: 2.1rem; }
+
+.spec-list { display: grid; gap: .1rem; }
+.spec-list div {
+  display: grid;
+  grid-template-columns: minmax(120px, 34%) 1fr;
+  gap: 1rem;
+  padding: .8rem .2rem;
+  border-bottom: 1px solid var(--line);
+  font-size: .93rem;
+}
+.spec-list dt { color: var(--muted); font-weight: 600; }
+.spec-list dd { margin: 0; color: var(--ink); font-weight: 600; }
+
+/* ---------- 09. Página de contato ------------------------------------ */
+.form-control, .form-select {
+  border-radius: var(--radius-sm);
+  border-color: var(--line);
+  padding: .8rem 1rem;
+  font-size: .95rem;
+  color: var(--ink);
+  background-color: #fff;
+}
+.form-control:focus, .form-select:focus {
+  border-color: var(--eco-400);
+  box-shadow: 0 0 0 .2rem rgba(64, 145, 108, .16);
+}
+.form-control::placeholder { color: #9AA7A0; }
+.form-label { font-weight: 700; font-size: .86rem; color: var(--ink); margin-bottom: .4rem; }
+.invalid-feedback { font-size: .82rem; }
+
+.form-panel {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.6rem, 3vw, 2.6rem);
+  box-shadow: var(--shadow-sm);
+}
+
+.info-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 1.6rem;
+}
+.info-card i {
+  width: 50px; height: 50px; border-radius: 15px;
+  background: var(--eco-100); color: var(--eco-700);
+  display: grid; place-items: center; font-size: 1.15rem;
+  margin-bottom: 1rem;
+}
+
+/* ---------- 10. Rodapé ----------------------------------------------- */
+.footer { background: var(--eco-900); color: rgba(255, 255, 255, .74); padding-top: clamp(3rem, 6vw, 4.5rem); }
+.footer .brand { color: #fff; }
+.footer .brand__mark { background: var(--eco-300); color: var(--eco-900); }
+
+/* rodapé estruturado com CSS Grid */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.6fr repeat(3, 1fr);
+  gap: 2.5rem;
+}
+.footer h4 {
+  color: #fff; font-family: var(--bs-body-font-family);
+  font-size: .8rem; font-weight: 800;
+  letter-spacing: .14em; text-transform: uppercase;
+  margin-bottom: 1.1rem;
+}
+.footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .6rem; }
+.footer a { color: rgba(255, 255, 255, .74); font-size: .92rem; }
+.footer a:hover { color: var(--eco-300); }
+.footer .contact-line { display: flex; gap: .7rem; align-items: flex-start; font-size: .92rem; }
+.footer .contact-line i { color: var(--eco-300); margin-top: .25rem; }
+
+.social { display: flex; gap: .6rem; margin-top: 1.4rem; }
+.social a {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: rgba(255, 255, 255, .09);
+  display: grid; place-items: center;
+  color: #fff; font-size: .95rem;
+  transition: all .22s var(--ease);
+}
+.social a:hover { background: var(--eco-300); color: var(--eco-900); transform: translateY(-3px); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  margin-top: 3rem;
+  padding: 1.5rem 0;
+  font-size: .85rem;
+}
+
+/* ---------- 11. Responsividade --------------------------------------- */
+@media (max-width: 1199.98px) {
+  .footer-grid { grid-template-columns: 1.4fr repeat(2, 1fr); }
+}
+
+@media (max-width: 991.98px) {
+  .hero-slide {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 1.6rem;
+    padding: 2.4rem 0 4.5rem;
+    min-height: auto;
+  }
+  .hero-slide__content, .hero-slide__text { margin-inline: auto; }
+  .hero-stage { max-width: 300px; order: -1; }
+
+  .filters { position: static; margin-bottom: 1.5rem; }
+
+  .navbar-eco .navbar-collapse {
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1rem;
+    margin-top: .8rem;
+    box-shadow: var(--shadow);
+  }
+  .navbar-eco .nav-link { padding: .7rem .9rem !important; }
+}
+
+@media (max-width: 767.98px) {
+  .section { padding: 2.8rem 0; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .product-grid { grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 1rem; }
+  .hero-carousel .carousel-control-prev,
+  .hero-carousel .carousel-control-next { display: none; }
+  .spec-list div { grid-template-columns: 1fr; gap: .1rem; }
+}
+
+@media (max-width: 575.98px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .product-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .product-card .card-body { padding: .9rem 1rem 1.1rem; }
+  .price__now { font-size: 1.05rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
