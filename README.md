@@ -5,7 +5,7 @@ Checkpoint 04 — **Front-end Design** | FIAP
 Interface responsiva de um e-commerce especializado em produtos sustentáveis e ecológicos,
 desenvolvida com **HTML5, CSS3 (Grid Layout) e Bootstrap 5**.
 
-**Aplicação online:** _adicione aqui o link do GitHub Pages após publicar_
+**Aplicação online:** https://arturfbrandi.github.io/cp4-frontend-design/
 
 ---
 
