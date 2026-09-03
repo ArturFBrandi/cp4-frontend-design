@@ -83,10 +83,10 @@ para manter uma identidade visual própria da loja.
 - **[Bootstrap 5.3](https://getbootstrap.com/)** — framework CSS para desenvolvimento web responsivo.
 - **[Font Awesome 6](https://fontawesome.com/)** — biblioteca de ícones para web.
 - **[Google Fonts](https://fonts.google.com/)** — tipografia *Fraunces* (títulos) e *Plus Jakarta Sans* (texto).
-- **SVG** — ilustrações dos produtos criadas para o projeto, sem dependência de imagens externas.
+- Imagens de produtos — imagens em formato JPG armazenadas localmente no projeto, sem dependência de serviços externos.
 
-> Os cards de produto estão escritos diretamente no HTML. O arquivo `src/js/main.js` contém
-> apenas duas funções: os filtros da página de categorias e a validação do formulário de contato.
+> Os cards de produto estão escritos diretamente no HTML.  O arquivo src/js/main.js contém as funcionalidades de filtros da página de categorias, carrinho de compras com persistência em localStorage e validação do formulário de contato.
+
 
 ---
 
@@ -103,14 +103,26 @@ cp4-frontend-design/
     ├── css/
     │   └── style.css         # Estilos personalizados (sobrescreve o Bootstrap)
     ├── js/
-    │   └── main.js           # Filtros do catálogo e validação do formulário
-    └── img/                  # Ilustrações SVG dos produtos e favicon
+    │   └── main.js           # Filtros, carrinho de compras e validação do formulário
+    └── img/                  # Imagens JPG dos produtos e favicon
 ```
 
 O `index.html` e o `README.md` ficam na raiz para que o GitHub Pages sirva a página
 inicial e o GitHub exiba a descrição do projeto. Todo o restante fica em `src/`.
 
 ---
+
+### Carrinho de compras
+
+- Adição e remoção de produtos;
+- Controle de quantidade;
+- Atualização automática do contador no header;
+- Cálculo do valor total;
+- Persistência utilizando localStorage;
+- Funcionamento entre diferentes páginas do site;
+- Visualização em Offcanvas do Bootstrap;
+- Modal de confirmação ao finalizar a compra.
+
 
 ## Como executar localmente
 
