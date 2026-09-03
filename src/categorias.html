@@ -32,7 +32,7 @@
       </a>
 
       <div class="d-flex align-items-center gap-2 order-lg-last">
-        <a href="#" class="icon-btn" aria-label="Carrinho de compras">
+        <a href="#" id="botaoCarrinho" class="icon-btn" aria-label="Carrinho de compras">
           <i class="fa-solid fa-basket-shopping"></i>
           <span class="cart-count">0</span>
         </a>
@@ -188,7 +188,7 @@
             <article class="card product-card h-100" data-categoria="roupas" data-marca="Verdejar" data-preco="129.90">
           <div class="product-card__media">
             <a href="produto.html" aria-label="Ver detalhes de Camiseta Algodão Orgânico Terra">
-              <img src="img/camiseta.svg" class="card-img-top" alt="Camiseta Algodão Orgânico Terra" loading="lazy" width="400" height="300">
+              <img src="img/camiseta.jpg" class="card-img-top" alt="Camiseta Algodão Orgânico Terra" loading="lazy" width="400" height="300">
             </a>
           </div>
           <div class="card-body">
@@ -198,7 +198,7 @@
               <span class="price__now">R$ 129,90</span>
             <span class="price__old">R$ 169,90</span>
             </p>
-            <button type="button" class="btn btn-add">
+            <button type="button" class="btn btn-add" data-acao="adicionar-carrinho">
               <i class="fa-solid fa-basket-shopping"></i> Adicionar ao Carrinho
             </button>
           </div>
@@ -206,7 +206,7 @@
         <article class="card product-card h-100" data-categoria="roupas" data-marca="Verdejar" data-preco="289.90">
           <div class="product-card__media">
             <a href="produto.html" aria-label="Ver detalhes de Moletom Reciclado Bosque">
-              <img src="img/moletom.svg" class="card-img-top" alt="Moletom Reciclado Bosque" loading="lazy" width="400" height="300">
+              <img src="img/moletom.jpg" class="card-img-top" alt="Moletom Reciclado Bosque" loading="lazy" width="400" height="300">
             </a>
           </div>
           <div class="card-body">
@@ -215,7 +215,7 @@
             <p class="price mb-2">
               <span class="price__now">R$ 289,90</span>
             </p>
-            <button type="button" class="btn btn-add">
+            <button type="button" class="btn btn-add" data-acao="adicionar-carrinho">
               <i class="fa-solid fa-basket-shopping"></i> Adicionar ao Carrinho
             </button>
           </div>
@@ -223,7 +223,7 @@
         <article class="card product-card h-100" data-categoria="roupas" data-marca="Fibra Livre" data-preco="89.90">
           <div class="product-card__media">
             <a href="produto.html" aria-label="Ver detalhes de Tote Bag de Linho Cru">
-              <img src="img/tote.svg" class="card-img-top" alt="Tote Bag de Linho Cru" loading="lazy" width="400" height="300">
+              <img src="img/tote.jpg" class="card-img-top" alt="Tote Bag de Linho Cru" loading="lazy" width="400" height="300">
             </a>
           </div>
           <div class="card-body">
@@ -233,7 +233,7 @@
               <span class="price__now">R$ 89,90</span>
             <span class="price__old">R$ 109,90</span>
             </p>
-            <button type="button" class="btn btn-add">
+            <button type="button" class="btn btn-add" data-acao="adicionar-carrinho">
               <i class="fa-solid fa-basket-shopping"></i> Adicionar ao Carrinho
             </button>
           </div>
@@ -241,7 +241,7 @@
         <article class="card product-card h-100" data-categoria="roupas" data-marca="Fibra Livre" data-preco="399.90">
           <div class="product-card__media">
             <a href="produto.html" aria-label="Ver detalhes de Tênis Vegano Raiz">
-              <img src="img/tenis.svg" class="card-img-top" alt="Tênis Vegano Raiz" loading="lazy" width="400" height="300">
+              <img src="img/tenis.jpg" class="card-img-top" alt="Tênis Vegano Raiz" loading="lazy" width="400" height="300">
             </a>
           </div>
           <div class="card-body">
@@ -251,7 +251,7 @@
               <span class="price__now">R$ 399,90</span>
             <span class="price__old">R$ 469,90</span>
             </p>
-            <button type="button" class="btn btn-add">
+            <button type="button" class="btn btn-add" data-acao="adicionar-carrinho">
               <i class="fa-solid fa-basket-shopping"></i> Adicionar ao Carrinho
             </button>
           </div>
@@ -259,7 +259,7 @@
         <article class="card product-card h-100" data-categoria="beleza" data-marca="Raiz Natural" data-preco="39.90">
           <div class="product-card__media">
             <a href="produto.html" aria-label="Ver detalhes de Shampoo em Barra Capim-Limão">
-              <img src="img/shampoo-barra.svg" class="card-img-top" alt="Shampoo em Barra Capim-Limão" loading="lazy" width="400" height="300">
+              <img src="img/shampoo-barra.jpg" class="card-img-top" alt="Shampoo em Barra Capim-Limão" loading="lazy" width="400" height="300">
             </a>
           </div>
           <div class="card-body">
@@ -269,7 +269,7 @@
               <span class="price__now">R$ 39,90</span>
             <span class="price__old">R$ 49,90</span>
             </p>
-            <button type="button" class="btn btn-add">
+            <button type="button" class="btn btn-add" data-acao="adicionar-carrinho">
               <i class="fa-solid fa-basket-shopping"></i> Adicionar ao Carrinho
             </button>
           </div>
@@ -277,7 +277,7 @@
         <article class="card product-card h-100" data-categoria="beleza" data-marca="Botânica" data-preco="149.90">
           <div class="product-card__media">
             <a href="produto.html" aria-label="Ver detalhes de Óleo Facial Botânico Noturno">
-              <img src="img/oleo-facial.svg" class="card-img-top" alt="Óleo Facial Botânico Noturno" loading="lazy" width="400" height="300">
+              <img src="img/oleo-facial.jpg" class="card-img-top" alt="Óleo Facial Botânico Noturno" loading="lazy" width="400" height="300">
             </a>
           </div>
           <div class="card-body">
@@ -286,7 +286,7 @@
             <p class="price mb-2">
               <span class="price__now">R$ 149,90</span>
             </p>
-            <button type="button" class="btn btn-add">
+            <button type="button" class="btn btn-add" data-acao="adicionar-carrinho">
               <i class="fa-solid fa-basket-shopping"></i> Adicionar ao Carrinho
             </button>
           </div>
@@ -294,7 +294,7 @@
         <article class="card product-card h-100" data-categoria="beleza" data-marca="Raiz Natural" data-preco="24.90">
           <div class="product-card__media">
             <a href="produto.html" aria-label="Ver detalhes de Sabonete Artesanal Argila Verde">
-              <img src="img/sabonete.svg" class="card-img-top" alt="Sabonete Artesanal Argila Verde" loading="lazy" width="400" height="300">
+              <img src="img/sabonete.jpg" class="card-img-top" alt="Sabonete Artesanal Argila Verde" loading="lazy" width="400" height="300">
             </a>
           </div>
           <div class="card-body">
@@ -304,7 +304,7 @@
               <span class="price__now">R$ 24,90</span>
             <span class="price__old">R$ 29,90</span>
             </p>
-            <button type="button" class="btn btn-add">
+            <button type="button" class="btn btn-add" data-acao="adicionar-carrinho">
               <i class="fa-solid fa-basket-shopping"></i> Adicionar ao Carrinho
             </button>
           </div>
@@ -312,7 +312,7 @@
         <article class="card product-card h-100" data-categoria="beleza" data-marca="Botânica" data-preco="54.90">
           <div class="product-card__media">
             <a href="produto.html" aria-label="Ver detalhes de Desodorante Natural Sálvia">
-              <img src="img/desodorante.svg" class="card-img-top" alt="Desodorante Natural Sálvia" loading="lazy" width="400" height="300">
+              <img src="img/desodorante.jpg" class="card-img-top" alt="Desodorante Natural Sálvia" loading="lazy" width="400" height="300">
             </a>
           </div>
           <div class="card-body">
@@ -321,7 +321,7 @@
             <p class="price mb-2">
               <span class="price__now">R$ 54,90</span>
             </p>
-            <button type="button" class="btn btn-add">
+            <button type="button" class="btn btn-add" data-acao="adicionar-carrinho">
               <i class="fa-solid fa-basket-shopping"></i> Adicionar ao Carrinho
             </button>
           </div>
@@ -329,7 +329,7 @@
         <article class="card product-card h-100" data-categoria="casa" data-marca="Bambuê" data-preco="69.90">
           <div class="product-card__media">
             <a href="produto.html" aria-label="Ver detalhes de Kit Talheres de Bambu Portátil">
-              <img src="img/talheres.svg" class="card-img-top" alt="Kit Talheres de Bambu Portátil" loading="lazy" width="400" height="300">
+              <img src="img/talheres.jpg" class="card-img-top" alt="Kit Talheres de Bambu Portátil" loading="lazy" width="400" height="300">
             </a>
           </div>
           <div class="card-body">
@@ -339,7 +339,7 @@
               <span class="price__now">R$ 69,90</span>
             <span class="price__old">R$ 89,90</span>
             </p>
-            <button type="button" class="btn btn-add">
+            <button type="button" class="btn btn-add" data-acao="adicionar-carrinho">
               <i class="fa-solid fa-basket-shopping"></i> Adicionar ao Carrinho
             </button>
           </div>
@@ -347,7 +347,7 @@
         <article class="card product-card h-100" data-categoria="casa" data-marca="Casa Viva" data-preco="159.90">
           <div class="product-card__media">
             <a href="produto.html" aria-label="Ver detalhes de Garrafa Térmica Inox 750 ml">
-              <img src="img/garrafa.svg" class="card-img-top" alt="Garrafa Térmica Inox 750 ml" loading="lazy" width="400" height="300">
+              <img src="img/garrafa.jpg" class="card-img-top" alt="Garrafa Térmica Inox 750 ml" loading="lazy" width="400" height="300">
             </a>
           </div>
           <div class="card-body">
@@ -357,7 +357,7 @@
               <span class="price__now">R$ 159,90</span>
             <span class="price__old">R$ 199,90</span>
             </p>
-            <button type="button" class="btn btn-add">
+            <button type="button" class="btn btn-add" data-acao="adicionar-carrinho">
               <i class="fa-solid fa-basket-shopping"></i> Adicionar ao Carrinho
             </button>
           </div>
@@ -365,7 +365,7 @@
         <article class="card product-card h-100" data-categoria="casa" data-marca="Casa Viva" data-preco="79.90">
           <div class="product-card__media">
             <a href="produto.html" aria-label="Ver detalhes de Vela de Cera de Soja Cedro">
-              <img src="img/vela.svg" class="card-img-top" alt="Vela de Cera de Soja Cedro" loading="lazy" width="400" height="300">
+              <img src="img/vela.jpg" class="card-img-top" alt="Vela de Cera de Soja Cedro" loading="lazy" width="400" height="300">
             </a>
           </div>
           <div class="card-body">
@@ -374,7 +374,7 @@
             <p class="price mb-2">
               <span class="price__now">R$ 79,90</span>
             </p>
-            <button type="button" class="btn btn-add">
+            <button type="button" class="btn btn-add" data-acao="adicionar-carrinho">
               <i class="fa-solid fa-basket-shopping"></i> Adicionar ao Carrinho
             </button>
           </div>
@@ -382,7 +382,7 @@
         <article class="card product-card h-100" data-categoria="casa" data-marca="Bambuê" data-preco="19.90">
           <div class="product-card__media">
             <a href="produto.html" aria-label="Ver detalhes de Escova de Dentes de Bambu">
-              <img src="img/escova.svg" class="card-img-top" alt="Escova de Dentes de Bambu" loading="lazy" width="400" height="300">
+              <img src="img/escova.jpg" class="card-img-top" alt="Escova de Dentes de Bambu" loading="lazy" width="400" height="300">
             </a>
           </div>
           <div class="card-body">
@@ -392,7 +392,7 @@
               <span class="price__now">R$ 19,90</span>
             <span class="price__old">R$ 24,90</span>
             </p>
-            <button type="button" class="btn btn-add">
+            <button type="button" class="btn btn-add" data-acao="adicionar-carrinho">
               <i class="fa-solid fa-basket-shopping"></i> Adicionar ao Carrinho
             </button>
           </div>
@@ -400,7 +400,7 @@
         <article class="card product-card h-100" data-categoria="tech" data-marca="Solaris" data-preco="449.90">
           <div class="product-card__media">
             <a href="produto.html" aria-label="Ver detalhes de Carregador Solar Dobrável 21W">
-              <img src="img/carregador-solar.svg" class="card-img-top" alt="Carregador Solar Dobrável 21W" loading="lazy" width="400" height="300">
+              <img src="img/carregador-solar.jpg" class="card-img-top" alt="Carregador Solar Dobrável 21W" loading="lazy" width="400" height="300">
             </a>
           </div>
           <div class="card-body">
@@ -410,7 +410,7 @@
               <span class="price__now">R$ 449,90</span>
             <span class="price__old">R$ 549,90</span>
             </p>
-            <button type="button" class="btn btn-add">
+            <button type="button" class="btn btn-add" data-acao="adicionar-carrinho">
               <i class="fa-solid fa-basket-shopping"></i> Adicionar ao Carrinho
             </button>
           </div>
@@ -418,7 +418,7 @@
         <article class="card product-card h-100" data-categoria="tech" data-marca="Solaris" data-preco="329.90">
           <div class="product-card__media">
             <a href="produto.html" aria-label="Ver detalhes de Power Bank Solar 20.000 mAh">
-              <img src="img/powerbank.svg" class="card-img-top" alt="Power Bank Solar 20.000 mAh" loading="lazy" width="400" height="300">
+              <img src="img/powerbank.jpg" class="card-img-top" alt="Power Bank Solar 20.000 mAh" loading="lazy" width="400" height="300">
             </a>
           </div>
           <div class="card-body">
@@ -427,7 +427,7 @@
             <p class="price mb-2">
               <span class="price__now">R$ 329,90</span>
             </p>
-            <button type="button" class="btn btn-add">
+            <button type="button" class="btn btn-add" data-acao="adicionar-carrinho">
               <i class="fa-solid fa-basket-shopping"></i> Adicionar ao Carrinho
             </button>
           </div>
@@ -435,7 +435,7 @@
         <article class="card product-card h-100" data-categoria="tech" data-marca="Voltar Verde" data-preco="89.90">
           <div class="product-card__media">
             <a href="produto.html" aria-label="Ver detalhes de Lâmpada LED Inteligente 9W">
-              <img src="img/lampada.svg" class="card-img-top" alt="Lâmpada LED Inteligente 9W" loading="lazy" width="400" height="300">
+              <img src="img/lampada.jpg" class="card-img-top" alt="Lâmpada LED Inteligente 9W" loading="lazy" width="400" height="300">
             </a>
           </div>
           <div class="card-body">
@@ -445,7 +445,7 @@
               <span class="price__now">R$ 89,90</span>
             <span class="price__old">R$ 119,90</span>
             </p>
-            <button type="button" class="btn btn-add">
+            <button type="button" class="btn btn-add" data-acao="adicionar-carrinho">
               <i class="fa-solid fa-basket-shopping"></i> Adicionar ao Carrinho
             </button>
           </div>
@@ -453,7 +453,7 @@
         <article class="card product-card h-100" data-categoria="tech" data-marca="Voltar Verde" data-preco="379.90">
           <div class="product-card__media">
             <a href="produto.html" aria-label="Ver detalhes de Fone de Ouvido Bambu Wireless">
-              <img src="img/fones.svg" class="card-img-top" alt="Fone de Ouvido Bambu Wireless" loading="lazy" width="400" height="300">
+              <img src="img/fones.jpg" class="card-img-top" alt="Fone de Ouvido Bambu Wireless" loading="lazy" width="400" height="300">
             </a>
           </div>
           <div class="card-body">
@@ -463,7 +463,7 @@
               <span class="price__now">R$ 379,90</span>
             <span class="price__old">R$ 429,90</span>
             </p>
-            <button type="button" class="btn btn-add">
+            <button type="button" class="btn btn-add" data-acao="adicionar-carrinho">
               <i class="fa-solid fa-basket-shopping"></i> Adicionar ao Carrinho
             </button>
           </div>
